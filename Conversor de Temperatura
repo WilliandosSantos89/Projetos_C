@@ -1,0 +1,53 @@
+/******************************************************************************
+
+Projeto 2: Conversor de Temperatura
+Descrição: Neste projeto, você irá desenvolver um conversor de temperatura em C. 
+O programa permitirá ao usuário converter uma temperatura em graus Celsius para Fahrenheit
+ou vice-versa. Ele solicitará a entrada do valor da temperatura e a unidade de medida desejada,
+e em seguida, realizará a conversão e exibirá o resultado na tela.
+
+*******************************************************************************/
+#include <stdio.h>
+
+float ConversorCelsiusParaFahrenheit(float celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+
+float ConversorFahrenheitParaCelsius(float fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+
+int main() {
+    float temperatura, temperaturaConvertida;
+    int opcao;
+    
+    printf("Conversor de temperatura\n");
+    
+    printf("1 - Celsius para Fahrenheit\n");
+    printf("2 - Fahrenheit para Celsius\n");
+    
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
+    
+    switch (opcao) {
+        case 1:
+            printf("Digite a temperatura em Celsius: ");
+            scanf("%f", &temperatura);
+            temperaturaConvertida = ConversorCelsiusParaFahrenheit(temperatura);
+            printf("%.2f graus Celsius equivalem a %.2f graus Fahrenheit.\n", temperatura, temperaturaConvertida);
+            break;
+        
+        case 2:
+            printf("Digite a temperatura em Fahrenheit: ");
+            scanf("%f", &temperatura);
+            temperaturaConvertida = ConversorFahrenheitParaCelsius(temperatura);
+            printf("%.2f graus em Fahrenheit equivalem a %.2f graus Celsius.\n", temperatura, temperaturaConvertida);
+            break;
+            
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
+    
+    return 0;
+}
