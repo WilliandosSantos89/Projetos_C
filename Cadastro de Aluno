@@ -1,0 +1,36 @@
+Neste projeto, você irá criar um programa em C para cadastrar e exibir informações de alunos. 
+O programa permitirá ao usuário adicionar informações como nome, idade e nota de um aluno, e em seguida, 
+exibirá os dados cadastrados na tela.
+
+
+#include <stdio.h>
+
+struct Aluno {
+    char nome[50];
+    int idade;
+    float nota;
+};
+
+int main() {
+    struct Aluno aluno;
+    
+    printf("Digite o nome do aluno: ");
+    fgets(aluno.nome, 50, stdin);
+    
+    printf("Digite a idade do aluno: ");
+    scanf("%d", &aluno.idade);
+    
+    printf("Digite a nota do aluno: ");
+    scanf("%f", &aluno.nota);
+    
+    printf("\n");
+    
+    printf("****** Informações do Aluno ******\n");
+    
+    printf("Nome: %s", aluno.nome);
+    printf("Idade: %d\n", aluno.idade);
+    printf("Nota: %.2f", aluno.nota);
+    
+    return 0;
+    
+}
