@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void contageRegressiva(int numero) {
+    if (numero < 0) {
+        printf("Erro: número inválido.\n");
+        return;
+    }
+    
+    for (int i = numero; i >= 0; i--) {
+        printf("%d ", i);
+    }
+    
+    printf("\n");
+}
+
+int main () {
+    int numero;
+    
+    printf("Digite um número inteiro: ");
+    scanf("%d", &numero);
+    
+    contageRegressiva(numero);
+    
+    return 0;
+}
