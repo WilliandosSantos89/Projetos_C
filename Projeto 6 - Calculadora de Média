@@ -1,0 +1,33 @@
+/******************************************************************************
+
+ Neste projeto, você irá criar um programa em C que calcula a média de três notas fornecidas pelo usuário.
+ O programa solicitará as notas, calculará a média e exibirá o resultado na tela.
+
+*******************************************************************************/
+
+
+#include <stdio.h>
+
+float calcularMedia(float nota1, float nota2, float nota3) {
+    return (nota1 + nota2 + nota3) / 3;
+}
+
+int main(){
+    float nota1, nota2, nota3;
+    float media;
+    
+    printf("**** Calculadora de Média ****\n");
+    
+    printf("Digite a primeira nota: ");
+    scanf("%f", &nota1);
+    
+    printf("Digite a segunda nota: ");
+    scanf("%f", &nota2);
+    
+    printf("Digite a terceira nota: ");
+    scanf("%f", &nota3);
+    
+    media = calcularMedia(nota1, nota2, nota3);
+    
+    printf("A média das notas %.2f, %.2f e %.2f é: %.2f\n", nota1, nota2, nota3, media);
+}
