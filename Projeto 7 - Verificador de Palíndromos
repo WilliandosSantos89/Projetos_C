@@ -1,0 +1,54 @@
+/******************************************************************************
+
+ Neste projeto, você irá criar um programa em C que verifica se uma palavra ou frase 
+ fornecida pelo usuário é um palíndromo. Palíndromo é uma palavra, frase ou número que 
+ permanece igual quando lida de trás para diante. 
+ O programa irá remover espaços e pontuações,  inverter a string e comparar com a string
+ original, informando se é um palíndromo ou não.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+
+int ehPalindromo(char *palavra) {
+    int i, j;
+    int tamanho = strlen(palavra);
+    
+    for (i = 0, j = tamanho - 1; i < j; i++, j--) {
+        while (!isalpha(palavra[i])) {
+            i++;
+        }
+        
+        while (!isalpha(palavra[j])) {
+            j--;
+        }
+        
+        if (tolower(palavra[i]) != tolower(palavra[j])) {
+            return 0;
+        }
+    }
+    
+    return 1;
+}
+
+int main() {
+    char palavra[100];
+    
+    printf("---- Verificador de Palíndromos ---\n");
+    printf("Digite uma palavra ou frase: ");
+    fgets(palavra, sizeof(palavra), stdin);
+    
+    if (ehPalindromo(palavra)) {
+        printf("%s eh um Palíndromo!\n", palavra);
+    } else {
+        printf("%s nao eh um Palíndromo!\n", palavra);
+    }
+    
+    return 0;
+ }
+ 
+
+
