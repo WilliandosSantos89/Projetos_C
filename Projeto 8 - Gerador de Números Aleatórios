@@ -1,0 +1,34 @@
+/******************************************************************************
+
+Neste projeto, você irá criar um programa em C que gera um número aleatório 
+dentro de um intervalo fornecido pelo usuário. O programa solicitará o limite 
+inferior e superior do intervalo e exibirá o número aleatório gerado na tela.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int gerarNumeroAleatorio(int limiteInferior, int limiteSuperior) {
+    return (rand() % (limiteSuperior - limiteInferior + 1)) + limiteInferior;
+}
+
+int main() {
+    int limiteInferior, limiteSuperior;
+    int numeroAleatorio;
+    
+    printf("*** Gerador de Número Aleatório ***\n");
+    printf("Digite o limite Inferior do intervalo: ");
+    scanf("%d", &limiteInferior);
+    
+    printf("Digite o limite Superior do intervalo: ");
+    scanf("%d", &limiteSuperior);
+    
+    srand(time(0));
+    
+    numeroAleatorio = gerarNumeroAleatorio(limiteInferior, limiteSuperior);
+    
+    printf("O número aleatório gerado entre %d e %d é %d\n", limiteInferior, limiteSuperior, numeroAleatorio);
+    
+    return 0;
+}
