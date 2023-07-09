@@ -1,0 +1,39 @@
+/******************************************************************************
+
+Neste projeto, você irá criar um programa em C que gera uma senha aleatória
+com base em um comprimento fornecido pelo usuário. O programa solicitará o
+comprimento da senha desejada e exibirá a senha gerada na tela
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void geradorDeSenhaAleatoria(int comprimento, char *senha) {
+    int i;
+    const char caracteres[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    
+    srand(time(0)); // Inicializa a garação de números aleatórios
+    
+    for (i = 0; i < comprimento; i++) {
+        senha[i] = caracteres[rand() % (sizeof(caracteres) - 1)];
+    }
+    
+    senha[comprimento] = '\0';
+}
+
+int main() {
+    int comprimento;
+    char senha[50];
+    
+    printf("*** Gerador de Senhas Aleatório ***\n");
+    printf("Digite o comprimento desejado para a senha: ");
+    scanf("%d", &comprimento);
+    
+    geradorDeSenhaAleatoria(comprimento, senha);
+    
+    printf("A senha gerada eh: %s\n", senha);
+    
+    return 0;
+    
+}
