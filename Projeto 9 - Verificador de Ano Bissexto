@@ -1,0 +1,36 @@
+/******************************************************************************
+
+ Neste projeto, você irá criar um programa em C que verifica se um ano fornecido
+ pelo usuário é bissexto ou não.O programa solicitará o ano e informará se 
+ ele é bissexto ou não.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int ehAnoBissexto (int ano) {
+    if (ano % 4 == 0) {
+        if (ano % 100 != 0 || (ano % 100 == 0 & ano % 400 == 0)) {
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
+int main() {
+    int ano;
+    
+    printf("*** Verificador de ano bissexto *** \n");
+    printf("Digite um ano: ");
+    scanf("%d", &ano);
+    
+    if (ehAnoBissexto(ano)) {
+        printf("%d eh um ano bissexto\n", ano);
+    }else {
+        printf("%d não eh um ano bissexto\n", ano);
+    }
+    
+    return 0;
+}
+
+
